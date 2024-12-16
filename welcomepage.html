@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to TerminalGo</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="skip" id="skipButton">Skip</button>
+        </div>
+        <div class="main-content">
+            <h1>Welcome to TerminalGo</h1>
+            <p>Know the Route, Find Your Ride</p>
+            <p>Find your nearest terminal in just a few taps!</p>
+            <div class="features">
+                <div class="feature">
+                    <img src="Photos/tric.png" alt="Car Icon">
+                    <p>Locate Tricycle and Jeepney terminals nearby</p>
+                </div>
+                <div class="feature">
+                    <img src="Photos/map2.png" id="map" alt="Map Icon">
+                    <p>Interactive maps with real-time updates</p>
+                </div>
+                <div class="feature">
+                    <img src="Photos/traffic.png" alt="Route Icon">
+                    <p>Plan your route with ease and save time</p>
+                </div>
+            </div>
+            <button class="navigate-btn" id="navigateButton">NAVIGATE NOW</button>
+        </div>
+        <div class="progress-bar">
+            <div class="progress" id="progressBar"></div>
+        </div>
+    </div>
+    
+     <script>
+        document.getElementById('skipButton').addEventListener('click',function() {
+            window.location.href = 'mainpage.html';
+        });
+
+        document.getElementById('navigateButton').addEventListener('click', function() {
+            window.location.href = 'welcome2.html';
+        });
+
+        let progress = 0;
+        const progressBar = document.getElementById('progressBar');
+
+        function updateProgress() {
+            if(progress <100) {
+                progress+=1;
+                progressBar.style.width = progress +  '%';
+            }
+        }
+
+        setInterval(updateProgress,100);
+        
+     </script>
+      
+</body>
+</html>

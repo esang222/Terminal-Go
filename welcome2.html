@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Terminals</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="skip" id="skipButton">Skip</button>
+        </div>
+        <div class="main-content">
+            <div class="main-image">
+                <img src="Photos/bus.webp" alt="Bus Terminal Image">
+            </div>
+            <h1>Search Terminals with Ease</h1>
+            <p>Use the search bar or tap on the map to quickly locate terminals near you. Finding tricycles, jeepneys, and buses has never been simpler!</p>
+            <button class="navigate-btn" id="navigateButton">NAVIGATE NOW</button>
+        </div>
+        <div class="progress-bar">
+            <div class="progress" id="prog2"></div>        
+        </div>
+    </div>
+
+       <script>
+         document.getElementById('skipButton').addEventListener('click',function(){
+            window.location.href = 'mainpage.html'; 
+         });
+
+         document.getElementById('navigateButton').addEventListener('click',function(){
+            window.location.href = 'welcome3.html';
+         });
+
+         let progress = 0;
+         const progressBar =  document.getElementById('prog2');
+
+         function updateProgress() {
+            if(progress < 100) {
+                progress += 1;
+                progressBar.style.width = progress + '%';
+            }
+         }
+
+         setInterval(updateProgress, 100);
+       </script> 
+</body>
+</html>

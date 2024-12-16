@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <title>Sign Up</title>
+</head>
+<body>
+   <div class="container">
+    <div class="login-box">
+      <h1>Register</h1>
+      <p>Create an account</p>
+
+      <form id="registerForm">
+          <div class="input-group">
+              <label for="firstname">
+                  <i class="fa-solid fa-user"></i>                  
+              </label>
+              <input type="text" id="firstname" placeholder="First Name" required>
+          </div>
+          <div class="input-group">
+              <label for="lastname">
+                  <i class="fa-solid fa-user"></i> 
+              </label>
+              <input type="text" id="lastname" placeholder="Last Name" required>
+          </div>
+          <div class="input-group">
+            <label for="email">
+                <i class="fa-solid fa-phone"></i> 
+            </label>
+            <input type="text" id="email" placeholder="Email or Phone" required>
+        </div>
+        <div class="input-group">
+          <label for="password">
+              <i class="fa-solid fa-lock"></i> 
+          </label>
+          <input type="password" id="password" placeholder="Password" required>
+      </div>
+
+      <div class="options1">
+        <label>
+            <input type="checkbox" id="agreeCheckbox"> I agree to the <span id="termsText" class="terms-text">Terms & Conditions</span>
+        </label> 
+        <span id="termsError" class="error-message"></span>
+      </div>
+            <button type="submit" class="login-btn">Signup</button>
+      </form>
+
+      <p class="sign-up">Already have an account? <a href="login.html">Login</a></p>
+
+      <div class="divider">
+          <hr><span>OR</span><hr>
+      </div>
+      <div class="social-buttons">
+          <button class="google-btn"><img src="Photos/google-logo.webp" alt="Google"></button>
+          <button class="facebook-btn"><img src="Photos/facebook-logo.png" alt="Facebook"></button>
+          <button class="x-btn"><img src="Photos/x-logo.webp" alt=""></button>
+      </div>
+  </div>
+   </div>
+
+      <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Registration Successful!</h2>
+            <p>Your account has been created successfully.</p>
+            <button id="modalOkBtn" class="modal-ok-btn">OK</button>
+        </div>
+      </div>
+
+      <div id="termsModal" class="terms-modal">
+        <div class="terms-modal-content">
+            <h4>Terms & Conditions of Terminal Go</h4>
+    
+            <!-- Terms Content -->
+            <div id="termsContent" class="terms-content">
+                <p><strong>1. Overview:</strong> Terminal Go is a platform that helps commuters find jeepneys and TODAs (Tricycle Operators and Drivers Associations) in real-time, providing users with nearby terminal locations...</p>
+                <p><strong>2. Usage Guidelines:</strong> Users must ensure they input accurate location data. By using the app, users agree to share their location for better service optimization...</p>
+                <p><strong>3. Privacy & Security:</strong> Terminal Go values your privacy. All location data is stored securely and is used solely for the purpose of helping you find the nearest terminal...</p>
+            </div>
+    
+            <button id="closeTermsModal" class="terms-close-btn">Close</button>
+        </div>
+    </div>
+    
+
+     <script src="signup.js"></script>
+
+</body>
+</html>

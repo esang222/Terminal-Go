@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay Updated in Real-Time</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="skip" id="skipButton">Skip</button>
+        </div>
+        <div class="main-content">
+            <div class="main-image">
+                <img src="Photos/map3.png" alt="Map Image">
+            </div>
+            <h1>Stay Updated in Real-Time</h1>
+            <p>Get live updates on terminal availability and traffic conditions. Make informed decisions for a hassle-free commute.</p>
+            <button class="navigate-btn" id="navigateButton">NAVIGATE NOW</button>
+        </div>
+        <div class="progress-bar">
+            <div class="progress" id="prog3"></div>
+        </div>
+    </div>
+
+    <script>
+          document.getElementById('skipButton').addEventListener('click', function() {
+            window.location.href = 'mainpage.html'; 
+        });
+
+        document.getElementById('navigateButton').addEventListener('click', function() {
+            window.location.href = 'welcome4.html'; 
+        });
+        
+        let progress = 0;
+        const progressBar = document.getElementById('prog3');
+
+        function updateProgress() {
+            if (progress < 100) {
+                progress += 1;
+                progressBar.style.width = progress + '%'; 
+            }
+        }
+
+        setInterval(updateProgress, 100);
+    </script>
+</body>
+</html>

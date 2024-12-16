@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Michroma&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #34465c, #3c8b6d, #3168a6);
+    background-size: 400% 400%;
+    animation: gradientAnimation 5s infinite;
+    color: white;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px auto;
+    background: white;
+    border-radius: 50%;
+    background-image: url('Photos/logo-black.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.title h1 {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.title h3 {
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+button { 
+    width: 200px;
+    padding: 12px 0px;
+    border: 2px solid rgb(250, 250, 250);
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+button.login {
+    background-color: #2c5171;
+    color: white;
+    margin-top: 15px;
+}
+
+button.login:hover {
+    background-color: #1b3a54;
+}
+
+button.signup {
+    background-color: #518ec7d0;
+    color: white;
+}
+
+button.signup:hover {
+    background-color: #6b96b0;
+}
+
+/* LOGIN PAGE */
+.login-box {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-box h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #234A78;
+}
+
+.login-box p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+    color: #234A78;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 2px solid #064067;
+    border-radius: 15px;
+    padding: 5px 10px;
+    width: 90%;
+}
+
+.input-group label {
+    margin-right: 10px;
+    color: #aaa;
+    font-size: 16px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: #000000;
+    margin-bottom: 10px;
+    font-weight:bolder;
+}
+
+.options a {
+    text-decoration: none;
+    color: #4282CA;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+.sign-up a{
+    color:#000000;
+    font-weight:bolder;
+}
+
+.login-btn {
+    background-color: #2c5171;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.login-btn:hover {
+    background-color: #1b3a54;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #818181;
+    font-size: 12px;
+}
+
+.divider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid #919191;
+}
+
+.divider span {
+    margin: 0 10px;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-buttons button {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #555555;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.social-buttons img {
+    width: 24px;
+    height: 24px;
+}
+
+.social-buttons button:hover {
+    background-color: #f9f9f9;
+}
+
+/* SIGN-UP */
+.options1{
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    color: #000000;
+    margin-bottom: 10px;
+    font-weight:bolder;
+    flex-direction:column;
+    align-items:center;
+}
+
+.error-message {
+    color:red;
+    font-size:0.9rem;
+    margin-top:5px;
+    display:block;
+    text-align:center;
+    font-weight:normal;
+    margin-bottom:5px;
+}
+
+.modal{
+    display: none; 
+    position: fixed;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+.modal-content{
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color:black;
+}
+.close-btn{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+
+.modal-ok-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.modal-ok-btn:hover {
+  background-color: #45a049;
+}
+
+.terms-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color:#4282CA;
+    font-size:3vh;
+}
+
+.terms-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    overflow-y: auto;
+}
+
+h4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Terms Content */
+.terms-content {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    color:#000000;
+}
+
+.terms-close-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.terms-close-btn:hover {
+    background-color: #d32f2f;
+}
+
+  /* For the "Terms & Conditions" clickable text */
+  .terms-text {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  

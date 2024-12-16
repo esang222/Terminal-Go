@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Input</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <button class="skip" id="skipButton">Skip</button>
+        </header>
+        <main class="content">
+            <div class="phone">
+                <img src="Photos/phone.png" alt="Phone with location pin">
+            </div>
+            <input type="text" class="location-input" placeholder="Enter your location or terminal name..."><br>
+            <button class="location-btn" id="locationBtn">Use My Location</button>            
+        </main>
+
+  
+        <div class="progress-bar">
+            <div class="progress" id="prog4"></div>
+        </div>
+
+
+        <div class="modal" id="locationModal">
+            <div class="modal-content">
+                <h2>Location Accessed!</h2>
+                <p>Your location has been opened successfully.</p>
+                <button id="modalBtn">Proceed to the Maps</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('skipButton').addEventListener('click',function() {
+            window.location.href = 'mainpage.html'; 
+        });
+
+        document.getElementById('locationBtn').addEventListener('click', function() {
+             
+            const modal = document.getElementById('locationModal');
+            modal.style.display = 'flex';
+
+            setTimeout(function() {
+              console.log("Location accessed!");
+            }, 1000);
+        });
+
+        document.getElementById('modalBtn').addEventListener('click', function() {
+            window.location.href = 'mainpage.html'; 
+        });
+
+        let progress = 0;
+        const progressBar = document.getElementById('prog4');
+        
+        function updateProgress() {
+            if (progress < 100) {
+                progress += 1;
+                progressBar.style.width = progress + '%'; 
+            }
+        }
+        setInterval(updateProgress, 100);
+
+         // Terminal data (name and coordinates)
+const terminals = {
+  sinabtoda: { coords: [14.3140, 121.1090], name: "SINABTODA" },
+  balibago: { coords: [14.2946, 121.1054], name: "Balibago Complex Terminal" },
+};
+
+// Possible paths with their coordinates
+const possiblePaths = {
+  "SM Santa Rosa": [14.3145, 121.0971],
+  "Enchanted Kingdom": [14.2824, 121.1101],
+  "Brgy Malitlit": [14.2444, 121.1214],
+  "Brgy Sinalhan": [14.3281, 121.1126],
+  "Santa Rosa City Hall": [14.3123, 121.1115],
+};
+
+// Event listener for the location input
+document.getElementById('locationBtn').addEventListener('click', () => {
+  const userLocationInput = document.querySelector('.location-input').value.trim().toLowerCase();
+  
+  let userLocationCoords = null;
+  
+  // Check if the input matches any terminal name
+  for (let terminalKey in terminals) {
+    if (terminals[terminalKey].name.toLowerCase() === userLocationInput) {
+      userLocationCoords = terminals[terminalKey].coords;
+      break;
+    }
+  }
+  
+  // If input is not a terminal name, check if it's a possible path location
+  if (!userLocationCoords) {
+    for (let pathKey in possiblePaths) {
+      if (pathKey.toLowerCase() === userLocationInput) {
+        userLocationCoords = possiblePaths[pathKey];
+        break;
+      }
+    }
+  }
+  
+  // If userLocationCoords is still null, show an alert
+  if (!userLocationCoords) {
+    alert("Location or terminal not found. Please try again.");
+    return;
+  }
+
+  // Find nearest terminal (calculate distance)
+  let nearestTerminal = null;
+  let minDistance = Infinity;
+
+  for (let terminalKey in terminals) {
+    const terminalCoords = terminals[terminalKey].coords;
+    const distance = getDistance(userLocationCoords, terminalCoords); // Calculate the distance between user location and terminal
+    if (distance < minDistance) {
+      minDistance = distance;
+      nearestTerminal = terminals[terminalKey];
+    }
+  }
+
+  // Redirect to the main page and pass the route information
+  if (nearestTerminal) {
+    window.location.href = `mainpage2.html?from=${userLocationInput}&to=${nearestTerminal.name}`;
+  }
+});
+
+// Function to calculate the distance between two coordinates (Haversine formula)
+function getDistance(coords1, coords2) {
+  const R = 6371; // Radius of the Earth in kilometers
+  const lat1 = coords1[0];
+  const lon1 = coords1[1];
+  const lat2 = coords2[0];
+  const lon2 = coords2[1];
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c; // Distance in kilometers
+}
+
+
+    </script>
+</body>
+</html>
